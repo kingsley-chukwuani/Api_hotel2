@@ -35,4 +35,5 @@ app.use('/api/v1/rooms', auth, roomRoutes);
 app.use('/api/v1/users', validate(schema), userRoutes);
 
 
+
 app.listen(5000, () => console.log('Server started on port 5000'));

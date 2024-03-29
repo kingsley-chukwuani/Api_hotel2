@@ -11,8 +11,9 @@ function auth(req, res, next) {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
+    req.user.roles = req.user.roles || ['user', 'admin']; 
     next();
-  } catch (error) { // change 'ex' to 'error' or any variable you prefer
+  } catch (error) {
     res.status(400).send('Invalid token.');
   }
 }
